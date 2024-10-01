@@ -1,0 +1,57 @@
+
+
+.invoice-container {
+    width: 60%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    top: 200px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 8px;
+}
+
+thead {
+    background-color: #f8f8f8;
+}
+
+.cart-total {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.invoice-actions {
+    margin-top: 20px;
+    text-align: right;
+}
+
+.btn {
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #f44336;
+    color: white;
+}

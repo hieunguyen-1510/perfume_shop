@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Thanh Toán</title>
+    <link rel="stylesheet" href="./css/checkout.css"> 
+</head>
+<body>
+    <h1>Trang Thanh Toán</h1>
+    
+    <!-- Hiển thị giỏ hàng -->
+    <div id="cart-items">
+        <h2>Sản phẩm trong giỏ hàng:</h2>
+        <table id="cart-table">
+            <thead>
+                <tr>
+                    <th>Tên sản phẩm</th>
+                    <th>Hình ảnh</th>
+                    <th>Số lượng</th>
+                    <th>Giá</th>
+                    <th>Tổng cộng</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Tổng tiền -->
+    <div id="total-price">
+        <h3>Tổng tiền: <span id="total-amount">$0</span></h3>
+    </div>
+
+    <!-- Form nhập thông tin thanh toán -->
+    <h2>Thông tin thanh toán</h2>
+    <form id="payment-form">
+        <label for="name">Tên người nhận:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="address">Địa chỉ giao hàng:</label><br>
+        <input type="text" id="address" name="address" required><br><br>
+
+        <label for="payment-method">Phương thức thanh toán:</label><br>
+        <select id="payment-method" name="payment-method" required>
+            <option value="credit-card">Thẻ tín dụng</option>
+            <option value="cash-on-delivery">Thanh toán khi nhận hàng</option>
+        </select><br><br>
+
+        <button type="submit">Thanh toán</button>
+    </form>
+
+    <script src="./back_end/checkout.js"></script> 
+</body>
+</html>

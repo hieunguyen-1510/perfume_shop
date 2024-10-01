@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .cart-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .cart-item img {
+            width: 50px;
+            height: 50px;
+        }
+        .cart-summary {
+            font-size: 1.2em;
+            text-align: right;
+            margin-top: 20px;
+        }
+        .btn-checkout {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            text-align: right;
+            cursor: pointer;
+        }
+        .btn-checkout:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="cart-container">
+        <h1>Giỏ hàng của bạn</h1>
+        <div id="cart-body"></div>
+        <div class="cart-summary"></div>
+        <a href="#" class="btn-checkout">Tiến hành thanh toán</a>
+    </div>
+
+    <script>
+        // Lấy giỏ hàng từ localStorage
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartBody = document.getElementById('cart-body');
+        const cartSummary = document.querySelector('.cart-summary');
+        const checkoutButton = document.querySelector('.btn-checkout');
+    
+        if (cart.length === 0) {
+            cartBody.innerHTML = '<p>Giỏ hàng của bạn đang trống. Hãy thêm sản phẩm vào giỏ hàng!</p>';
+        } else {
+            let totalPrice = 0;
+    
+            cart.forEach(product => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <span>${product.name}</span> - 
+                    <span>Giá: $${product.price.toFixed(2)}</span> - 
+                    <span>Số lượng: ${product.quantity}</span>
+                `;
+                cartBody.appendChild(cartItem);
+    
+                // Tính tổng giá
+                totalPrice += product.price * product.quantity;
+            });
+    
+            cartSummary.innerHTML = `Tổng giá: $${totalPrice.toFixed(2)}`;
+        }
+    
+        // Bắt sự kiện click nút "Tiến hành thanh toán"
+        checkoutButton.addEventListener('click', function () {
+            // Lưu giỏ hàng vào localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            // Điều hướng sang trang checkout.html
+            window.location.href = './checkout.html';
+        });
+    </script>    
+</body>
+</html>

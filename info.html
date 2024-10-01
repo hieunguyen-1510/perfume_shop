@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin khách hàng</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="./fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="container-logo">
+                <img class="logo1" src="./images/logo1.png" alt="">
+            </div>
+            <nav id="main-nav">
+                <ul >
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li >
+                        <a href="shop.html">Sản phẩm</a>
+                        <ul class="drop-down">
+                            <li ><a href="dnam.html">Nước hoa Design Nam</a></li>
+                            <li ><a href="dnu.html">Nước hoa Design Nữ</a></li>
+                            <li ><a href="new-products.html">Sản phẩm mới</a></li>
+                            <li ><a href="outstanding-products.html">Sản phẩm nổi bật</a></li>
+                            <li ><a href="sale.html">Sale</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="about.html" style="background-color: bisque;">Giới thiệu</a></li>
+                    <li><a href="contact.html">Liên Hệ</a></li>
+                </ul>
+                <li class="header__navbar-item header__navbar-user">
+                    <img src="https://down-vn.img.susercontent.com/file/9d6de1a8bd9bf11b20057bdd44f42094_tn" alt="user-name" class="header__navbar-user-img">
+                    <span class="header__navbar-user-name">Sơn Bình</span>
+    
+                    <ul class="header__navbar-user-menu">
+                        <li class="header__navbar-user-item">
+                            <a href="">Tài khoản của tôi</a>
+                        </li>
+                        <li class="header__navbar-user-item">
+                            <a href="">Địa chỉ của tôi</a>
+                        </li>
+                        <li class="header__navbar-user-item">
+                            <a href="">Đơn mua </a>
+                        </li>
+                        <li class="header__navbar-user-item header__navbar-user-item--separate">
+                            <a href="">Đăng xuất </a>
+                        </li>
+                    </ul>
+                </li>
+            </nav>
+            <div class="icon-box">
+                <i class="fa fa-search" id="search-click" aria-hidden="true"></i>
+                <i class="fa fa-shopping-cart" id="click-cart" aria-hidden="true"><span class="cart-count c1">0</span></i>
+                <i class="fa fa-bars" id="menu-icon"  aria-hidden="true" onclick="clickCategory()"></i>
+            </div>
+        </div>
+    </header>
+    <div class="container-search" id="predictive-search-form">
+        <form action="/search" method="GET" aria-owns="header-predictive-search" class="header-search__form" role="search" onsubmit="return false;">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <input type="search" autocomplete="off" name="q" spellcheck="false" class="header-search__input" aria-label="Search" placeholder="Search for..." oninput="filterProducts()">
+            <i class="fa fa-times close-btn" style="font-size: 30px; cursor: pointer;" aria-hidden="true" onclick="clearSearch()"></i>
+        </form>
+    </div>
+    <div class="cart">
+        <div class="cart-head">
+            <span class="text-cart">Cart (<span class="cart-count">0</span>)</span>
+            <i class="fa fa-times close-btn" style="font-size: 30px; cursor: pointer;" aria-hidden="true"></i>
+        </div>
+        <div class="cart-body">
+            <p style="position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%);">Your cart is empty</p>
+        </div>
+    </div>
+    <main>
+        <div class="hello">
+            <h1>Xin chào</h1><span class="header__navbar-user-name"></span>
+        </div>
+        <div class="account-container">
+            <h2>Thông Tin Tài Khoản</h2>
+            
+            <form class="account-form" id="account-form">
+                <!-- Email -->
+                <div class="form-group">
+                    <label class="lb1" for="email">Email:</label>
+                    <input class="ip1" type="email" id="email" name="email" value="user@example.com" disabled>
+                </div>
+    
+                <!-- Số điện thoại -->
+                <div class="form-group">
+                    <label class="lb1" for="phone">Số điện thoại:</label>
+                    <input class="ip1" type="tel" id="phone" name="phone" value="0123456789">
+                    <button type="button" class="edit-btn" onclick="editPhone()">Đổi số điện thoại</button>
+                </div>
+    
+                <!-- Mật khẩu -->
+                <div class="form-group">
+                    <label class="lb1" for="password">Mật khẩu:</label>
+                    <div class="password-wrapper">
+                        <input class="ip1" type="password" id="password" name="password" value="12345678">
+                        <span class="toggle-password" onclick="togglePasswordVisibility()">
+                            <i id="eye-icon" class="fa fa-eye"></i>
+                        </span>
+                    </div>
+                    <button type="button" class="edit-btn" onclick="editPassword()">Đổi mật khẩu</button>
+                </div>
+    
+                <!-- Nút lưu -->
+                <button type="submit" class="save-btn">Lưu thay đổi</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="site-footer">
+            <div class="grid">
+                <div class="grid-row">
+                    <div class="col-3">
+                        <div class="container-logo">
+                            <img class="logo1" src="./images/logo1.png" alt="">
+                        </div>
+                        <ul class="footer-list">
+                            <li class="footer-item">
+                                <i class="fa fa-map-marker icon-footer " aria-hidden="true"></i>
+                                <span>36 Thủ Đức-Hồ Chí Minh</span>
+                            </li>
+                            <li class="footer-item">
+                                <i class="fa fa-phone icon-footer" aria-hidden="true"></i>
+                                <span>0124336587</span>
+                            </li>
+                            <li class="footer-item">
+                                <i class="fa fa-envelope-o icon-footer" aria-hidden="true"></i>
+                                <a href="Support@Borcelle.com - For Work: Outreach@Borcelle.com.vn">Support@Borcelle.com - For Work: Outreach@Borcelle.com.vn</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-3 ">
+                        <span class="footer-heading">Hỗ trợ khách hàng</span>
+                        <ul class="footer-list">
+                            <li class="footer-item it-menu">
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                <a href="">Chính sách bảo mật</a>  
+                            </li>
+                            <li class="footer-item it-menu">
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                <a href="">Chính sách vận chuyển</a>  
+                            </li>
+                            <li class="footer-item it-menu">
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                <a href="">Chính sách đổi trả</a>  
+                            </li>
+                            <li class="footer-item it-menu">
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                <a href="">Hình thức thanh toán</a>  
+                            </li>
+                        </ul>
+                        <img class="certification" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHABKQZ3RtRHqimVmqYavpwvZN_ajH9iqvpg&s" alt="">
+                        
+                    </div>
+                    <div class="col-3">
+                        <span class="footer-heading">Hướng dẫn</span>
+                        <ul class="footer-list">
+                            <li class="footer-item it-menu">
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                <a href="">Hướng dẫn mua hàng</a>  
+                            </li>
+                            <li class="footer-item it-menu">
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                <a href=""> Hướng dẫn thanh toán</a>  
+                            </li>
+                            <li class="footer-item it-menu">
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                <a href="">Hướng dẫn giao nhận</a>  
+                            </li>
+                            <li class="footer-item it-menu">
+                                <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                <a href="">Điều khoản dịch vụ</a>  
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-3">
+                        <span class="footer-heading">Kết nối</span>
+                        <div class="icon-link">
+                            <a href="" class="fb"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                            <a href="" class="phone"><i class="fa fa-phone" aria-hidden="true"></i></a>
+                            <a href="" class="mes"><i class="fa fa-commenting-o" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Perfume Paradise. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script src="./back_end/xuly.js"></script>
+    <script src="./back_end/info-account.js"></script>
+</body>
+</html>
