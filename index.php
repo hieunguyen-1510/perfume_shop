@@ -28,8 +28,19 @@
                     </li>
                     <li><a href="about.html">Giới thiệu</a></li>
                     <li><a href="contact.html">Liên Hệ</a></li>
-                    <li><a href="#" id="login">Đăng nhập</a></li>
-                    <li><a href="#" id="register">Đăng ký</a></li>
+                    <li id="user-name" style="display:none;">
+                        <a href="#" id="userName">Username</a>
+                        <ul id="logout-menu">
+                            <li><a href="#" id="logout">Đăng xuất</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li id="login">
+                        <a href="#" id="login"><i class="fa fa-sign-in" aria-hidden="true"></i> Đăng nhập</a>
+                    </li>
+                    <li id="register">
+                        <a href="#" id="register"><i class="fa fa-user-plus" aria-hidden="true"></i> Đăng ký</a>
+                    </li>
                 </ul>
             </nav>
             <li class="header__navbar-item header__navbar-user">
@@ -78,8 +89,6 @@
             transform: translate(-50%);">Your cart is empty</p>
         </div>
     </div>
-    
-    
     <main>
         <section class="hero-section">
             <div class="hero-content">
@@ -299,7 +308,7 @@
         </div>
     </footer>
     <!-- Modal layout -->
-    <div class="modal" id="modal">
+   <div class="modal" id="modal">
     <div class="modal__overlay"></div>
     <div class="modal__body">
         <!-- Form register -->
@@ -322,11 +331,29 @@
                     <div class="auth-form__group">
                         <input type="password" id="confirm-password" class="auth-form__input" placeholder="Nhập lại mật khẩu của bạn">
                     </div>
+
+                    <!-- New fields -->
+                    <div class="auth-form__group">
+                        <input type="text" id="register-phone" class="auth-form__input" placeholder="Nhập số điện thoại của bạn">
+                    </div>
+
+                    <div class="auth-form__group">
+                        <input type="text" id="register-address" class="auth-form__input" placeholder="Nhập địa chỉ của bạn">
+                    </div>
+
+                    <div class="auth-form__group">
+                        <select id="register-gender" class="auth-form__input">
+                            <option value="">Chọn giới tính</option>
+                            <option value="male">Nam</option>
+                            <option value="female">Nữ</option>
+                            <option value="other">Khác</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div class="auth-form__aside">
                     <p class="auth-form__policy-text">
-                        Bằng việc đăng kí, bạn đã đồng ý với Borcelle Perfume về
+                        Bằng việc đăng ký, bạn đã đồng ý với Borcelle Perfume về
                         <a href="" class="auth-form__text-link">Điều khoản dịch vụ</a> &
                         <a href="" class="auth-form__text-link">Chính sách bảo mật</a>
                     </p>
@@ -400,8 +427,11 @@
             </div>
         </div>
     </div>
-    </div>
 </div>
-    <script src="./back_end/xuly.js"></script>
+<!-- User profile placeholder after login -->
+<li id="login"><a href="#" id="login"><i class="fa fa-sign-in" aria-hidden="true"></i> Đăng nhập</a></li>
+<li id="user" style="display: none;"><a href="#"><i class="fa fa-user" aria-hidden="true"></i> <span id="username-display"></span></a></li>
+
+<script src="./back_end/xuly.js"></script>
 </body>
 </html>

@@ -1716,3 +1716,67 @@ footer {
         margin-left: 10px;
     }
 }
+/* User Profile Styles */
+#user-name {
+    display: none; /* Initially hidden */
+    position: relative;
+}
+
+/* User Name Link */
+#userName {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #4CAF50; 
+    color: white; /* Text color */
+    text-decoration: none;
+    border-radius: 5px; /* Rounded corners */
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: -10px; 
+}
+
+/* User Name Link Hover Effect */
+#userName:hover {
+    background-color: #45a049;
+}
+
+/* Logout Menu Styles */
+#logout-menu {
+    display: none; 
+    position: absolute;
+    top: 100%; 
+    right: 0; /* Align to the right */
+    background-color: white; 
+    border: 1px solid #ccc; /* Border for the dropdown */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    z-index: 10; /* Ensure it appears above other content */
+}
+
+/* Logout Menu Item Styles */
+#logout-menu li {
+    list-style: none; /* Remove bullet points */
+}
+
+/* Logout Link Styles */
+#logout-menu a {
+    display: block; /* Make the link fill the whole menu item */
+    padding: 10px 15px; /* Padding for clickable area */
+    color: #333; /* Text color */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+/* Logout Link Hover Effect */
+#logout-menu a:hover {
+    background-color: #f1f1f1; /* Light gray on hover */
+}
+
+/* Media Query for Responsive Design */
+@media (max-width: 600px) {
+    #userName {
+        font-size: 14px; /* Adjust font size for smaller screens */
+        padding: 8px 12px; /* Adjust padding */
+    }
+}
+

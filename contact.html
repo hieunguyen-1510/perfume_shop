@@ -14,16 +14,16 @@
                 <img class="logo1" src="./images/logo1.png" alt="">
             </div>
             <nav id="main-nav">
-                <ul >
+                <ul>
                     <li><a href="index.html">Trang chủ</a></li>
-                    <li >
+                    <li>
                         <a href="shop.html">Sản phẩm</a>
                         <ul class="drop-down">
-                            <li ><a href="dnam.html">Nước hoa Design Nam</a></li>
-                            <li ><a href="dnu.html">Nước hoa Design Nữ</a></li>
-                            <li ><a href="new-products.html">Sản phẩm mới</a></li>
-                            <li ><a href="outstanding-products.html">Sản phẩm nổi bật</a></li>
-                            <li ><a href="sale.html">Sale</a></li>
+                            <li><a href="dnam.html">Nước hoa Design Nam</a></li>
+                            <li><a href="dnu.html">Nước hoa Design Nữ</a></li>
+                            <li><a href="new-products.html">Sản phẩm mới</a></li>
+                            <li><a href="outstanding-products.html">Sản phẩm nổi bật</a></li>
+                            <li><a href="sale.html">Sale</a></li>
                         </ul>
                     </li>
                     <li><a href="about.html">Giới thiệu</a></li>
@@ -35,7 +35,7 @@
             <div class="icon-box">
                 <i class="fa fa-search" id="search-click" aria-hidden="true"></i>
                 <i class="fa fa-shopping-cart" id="click-cart" aria-hidden="true"><span class="cart-count c1">0</span></i>
-                <i class="fa fa-bars" id="menu-icon"  aria-hidden="true" onclick="clickCategory()"></i>
+                <i class="fa fa-bars" id="menu-icon" aria-hidden="true" onclick="clickCategory()"></i>
             </div>
         </div>
     </header>
@@ -52,10 +52,7 @@
             <i class="fa fa-times close-btn" style="font-size: 30px; cursor: pointer;" aria-hidden="true"></i>
         </div>
         <div class="cart-body">
-            <p style="position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%);">Your cart is empty</p>
+            <p style="position: absolute; left: 50%; top: 50%; transform: translate(-50%);">Your cart is empty</p>
         </div>
     </div>
     <main>
@@ -82,30 +79,30 @@
                     <div class="about-content">
                         <p><b><i>Borcelle Perfume </i></b></p>
                         <p>
-                            Borcelle được thành lập vào năm 2017, hiện đang là nhà phân phối <br> chính hãng của các nhãn hàng lớn như Versace, Creed, Salvatore <br> Ferragamo, Carolina Herrera, Jean Paul Gaultier v..v Tại Borcelle, tất cả <br> sản phẩm đều là hàng chính hãng và khách hàng sẽ được hậu mãi ở <br> mức cao nhất.
+                            Borcelle được thành lập vào năm 2017, hiện đang là nhà phân phối <br> chính hãng của các nhãn hàng lớn như Versace, Creed, Salvatore <br> Ferragamo, Carolina Herrera, Jean Paul Gaultier v.v. Tại Borcelle, tất cả <br> sản phẩm đều là hàng chính hãng và khách hàng sẽ được hậu mãi ở <br> mức cao nhất.
                         </p>
                         <p>
                             <b>Cửa hàng chính</b>
                         </p>
                         <div class="mid-content">
-                            <p><i class="fa fa-map-marker icon-contact" aria-hidden="true"></i><span >Thành phố Trà Vinh</span></p>
-                            <p><i class="fa fa-phone icon-contact" aria-hidden="true"></i><span><a href="">0966434787</a></span></p>
-                            <p><i class="fa fa-envelope icon-contact" aria-hidden="true"></i><span><a href="">Support@borcelle.com</a></span></p>
+                            <p><i class="fa fa-map-marker icon-contact" aria-hidden="true"></i><span>Thành phố Trà Vinh</span></p>
+                            <p><i class="fa fa-phone icon-contact" aria-hidden="true"></i><span><a href="tel:0966434787">0966434787</a></span></p>
+                            <p><i class="fa fa-envelope icon-contact" aria-hidden="true"></i><span><a href="mailto:support@borcelle.com">Support@borcelle.com</a></span></p>
                         </div>
                         <div class="border-1line"></div>
                         <div class="form-contact">
                             <div class="header-form">
                                 <h3>Gửi tin nhắn cho chúng tôi</h3>
                             </div>
-                            <form action="">
-                                <input type="text" placeholder="Tên của bạn" class="form-control" name="contact-name">
-                                <input type="text" placeholder="Email của bạn" class="form-control" name="contact-email">
-                                <textarea name="content-of-contact" id="content-of-contact" class="form-control" placeholder="Nhập nội dung" style="padding-bottom: 80px;"></textarea>
-                                <button class="btn-contact">Gửi liên hệ</button>
+                            <form action="" method="POST" onsubmit="return submitContactForm()">
+                                <input type="text" placeholder="Tên của bạn" class="form-control" name="contact-name" required>
+                                <input type="email" placeholder="Email của bạn" class="form-control" name="contact-email" required>
+                                <textarea name="content-of-contact" id="content-of-contact" class="form-control" placeholder="Nhập nội dung" style="padding-bottom: 80px;" required></textarea>
+                                <button type="submit" class="btn-contact">Gửi liên hệ</button>
                             </form>
+                            <div id="feedback" style="display: none; margin-top: 10px;"></div>
                         </div>
                     </div>
-                    
                 </div>
                 <div class="img-contact">
                     <img src="./images/contact-company.jfif" alt="">
@@ -132,7 +129,7 @@
                             </li>
                             <li class="footer-item">
                                 <i class="fa fa-envelope-o icon-footer" aria-hidden="true"></i>
-                                <a href="Support@Borcelle.com - For Work: Outreach@Borcelle.com.vn">Support@Borcelle.com - For Work: Outreach@Borcelle.com.vn</a>
+                                <a href="mailto:support@borcelle.com">Support@Borcelle.com - For Work: Outreach@Borcelle.com.vn</a>
                             </li>
                         </ul>
                     </div>
@@ -141,164 +138,83 @@
                         <ul class="footer-list">
                             <li class="footer-item it-menu">
                                 <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                <a href="">Chính sách bảo mật</a>  
+                                <a href="">Chính sách bảo mật</a>
                             </li>
                             <li class="footer-item it-menu">
                                 <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                <a href="">Chính sách vận chuyển</a>  
+                                <a href="">Chính sách vận chuyển</a>
                             </li>
                             <li class="footer-item it-menu">
                                 <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                <a href="">Chính sách đổi trả</a>  
+                                <a href="">Chính sách đổi trả</a>
                             </li>
                             <li class="footer-item it-menu">
                                 <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                <a href="">Hình thức thanh toán</a>  
+                                <a href="">Hình thức thanh toán</a>
                             </li>
                         </ul>
-                        <img class="certification" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHABKQZ3RtRHqimVmqYavpwvZN_ajH9iqvpg&s" alt="">
-                        
+                        <img class="certification" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHABLSMmN9zM-KMnSLnbPCA9-lIEQiYbozWA&usqp=CAU" alt="">
                     </div>
-                    <div class="col-3">
-                        <span class="footer-heading">Hướng dẫn</span>
+                    <div class="col-3 ">
+                        <span class="footer-heading">Liên kết khác</span>
                         <ul class="footer-list">
                             <li class="footer-item it-menu">
                                 <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                <a href="">Hướng dẫn mua hàng</a>  
+                                <a href="index.html">Trang chủ</a>
                             </li>
                             <li class="footer-item it-menu">
                                 <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                <a href=""> Hướng dẫn thanh toán</a>  
+                                <a href="shop.html">Sản phẩm</a>
                             </li>
                             <li class="footer-item it-menu">
                                 <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                <a href="">Hướng dẫn giao nhận</a>  
+                                <a href="about.html">Giới thiệu</a>
                             </li>
                             <li class="footer-item it-menu">
                                 <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                <a href="">Điều khoản dịch vụ</a>  
+                                <a href="contact.html">Liên hệ</a>
                             </li>
                         </ul>
                     </div>
-                    <div class="col-3">
-                        <span class="footer-heading">Kết nối</span>
-                        <div class="icon-link">
-                            <a href="" class="fb"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                            <a href="" class="phone"><i class="fa fa-phone" aria-hidden="true"></i></a>
-                            <a href="" class="mes"><i class="fa fa-commenting-o" aria-hidden="true"></i></a>
-                        </div>
+                    <div class="col-3 ">
+                        <span class="footer-heading">Đăng ký nhận tin</span>
+                        <form action="" method="POST">
+                            <input type="email" placeholder="Nhập email của bạn" class="form-control">
+                            <button type="submit" class="btn-footer">Gửi</button>
+                        </form>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 Perfume Paradise. All rights reserved.</p>
+                <div class="footer-bottom-content">
+                    <span>© 2023 Borcelle Perfume. Tất cả quyền lợi thuộc về Borcelle.</span>
+                </div>
             </div>
         </div>
     </footer>
- <!-- Modal layout -->
- <div class="modal" id="modal">
-    <div class="modal__overlay"></div>
-    <div class="modal__body">
-        <!-- Form register -->
-        <div class="auth-form" id="form-register">
-            <div class="auth-form__container">
-                <div class="auth-form__header">
-                    <h3 class="auth-form__heading">Đăng ký</h3>
-                    <span class="auth-form__switch-btn" onclick="login1()">Đăng nhập</span>
-                </div>
+    <script>
+        function submitContactForm() {
+            // Prevent form submission and display feedback
+            const name = document.querySelector('input[name="contact-name"]').value;
+            const email = document.querySelector('input[name="contact-email"]').value;
+            const content = document.querySelector('textarea[name="content-of-contact"]').value;
 
-                <div class="auth-form__form">
-                    <div class="auth-form__group">
-                        <input type="text" id="register-email" class="auth-form__input" placeholder="Nhập email của bạn">
-                    </div>
+            if (!name || !email || !content) {
+                alert("Vui lòng điền tất cả các trường.");
+                return false; // Prevent form submission
+            }
 
-                    <div class="auth-form__group">
-                        <input type="password" id="register-password" class="auth-form__input" placeholder="Nhập mật khẩu của bạn">
-                    </div>
+            // Display feedback message
+            const feedbackDiv = document.getElementById("feedback");
+            feedbackDiv.style.display = "block";
+            feedbackDiv.innerText = "Cảm ơn bạn đã gửi tin nhắn! Chúng tôi sẽ phản hồi sớm nhất có thể.";
+            feedbackDiv.style.color = "green";
 
-                    <div class="auth-form__group">
-                        <input type="password" id="confirm-password" class="auth-form__input" placeholder="Nhập lại mật khẩu của bạn">
-                    </div>
-                </div>
+            // Optionally, reset the form
+            document.querySelector('.form-contact form').reset();
 
-                <div class="auth-form__aside">
-                    <p class="auth-form__policy-text">
-                        Bằng việc đăng kí, bạn đã đồng ý với Borcelle Perfume về
-                        <a href="" class="auth-form__text-link">Điều khoản dịch vụ</a> &
-                        <a href="" class="auth-form__text-link">Chính sách bảo mật</a>
-                    </p>
-                </div>
-
-                <div class="auth-form__controls">
-                    <button class="btn auth-form__control-back btn--normal close-btn">
-                        TRỞ LẠI
-                    </button>
-                    <button class="btn btn--primary" id="register-btn">ĐĂNG KÝ</button>
-                </div>
-            </div>
-
-            <div class="auth-form__socials">
-                <a href="" class="auth-form__socials--facebook btn btn--size-s btn--width-icon">
-                    <i class="auth-form__socials--icon fa fa-facebook-square" aria-hidden="true"></i>
-                    <span class="auth-form__socials-title">Kết nối với FaceBook</span>
-                </a>
-
-                <a href="" class="auth-form__socials--google btn btn--size-s btn--width-icon">
-                    <i class="auth-form__socials--icon fa fa-google" aria-hidden="true"></i>
-                    <span class="auth-form__socials-title">Kết nối với Google</span>
-                </a>
-            </div>
-        </div>
-
-        <!-- Form login -->
-        <div class="auth-form" id="form-login">
-            <div class="auth-form__container">
-                <div class="auth-form__header">
-                    <h3 class="auth-form__heading">Đăng nhập</h3>
-                    <span class="auth-form__switch-btn" onclick="register1()">Đăng ký</span>
-                </div>
-
-                <div class="auth-form__form">
-                    <div class="auth-form__group">
-                        <input type="text" class="auth-form__input" id="login-email" placeholder="Nhập email của bạn">
-                    </div>
-
-                    <div class="auth-form__group">
-                        <input type="password" class="auth-form__input" id="login-password" placeholder="Nhập mật khẩu của bạn">
-                    </div>
-                </div>
-
-                <div class="auth-form__aside">
-                    <div class="auth-form__help">
-                        <a href="" class="auth-form__help-link auth-form__help-forgot">Quên mật khẩu</a>
-                        <span class="auth-form__help-sperate"></span>
-                        <a href="" class="auth-form__help-link">Cần trợ giúp?</a>
-                    </div>
-                </div>
-
-                <div class="auth-form__controls">
-                    <button class="btn auth-form__control-back btn--normal" onclick="register1()">
-                        TRỞ LẠI
-                    </button>
-                    <button class="btn btn--primary" id="login-btn" type="button">ĐĂNG NHẬP</button>
-                </div>
-            </div>
-
-            <div class="auth-form__socials">
-                <a href="" class="auth-form__socials--facebook btn btn--size-s btn--width-icon">
-                    <i class="auth-form__socials--icon fa fa-facebook-square" aria-hidden="true"></i>
-                    <span class="auth-form__socials-title">Kết nối với FaceBook</span>
-                </a>
-
-                <a href="" class="auth-form__socials--google btn btn--size-s btn--width-icon">
-                    <i class="auth-form__socials--icon fa fa-google" aria-hidden="true"></i>
-                    <span class="auth-form__socials-title">Kết nối với Google</span>
-                </a>
-            </div>
-        </div>
-    </div>
-    </div>
-</div>
-    <script src="./back_end/xuly.js"></script>
+            return false; // Prevent actual form submission
+        }
+    </script>
 </body>
 </html>

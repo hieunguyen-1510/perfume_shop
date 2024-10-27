@@ -298,48 +298,93 @@ const addToCart = (product) => {
 localStorage.setItem('userEmail', 'email@example.com');
 localStorage.setItem('userPhone', '0123456789');
 localStorage.setItem('userAddress', 'Hải Phòng');
+// Xử lý đăng ký
+document.querySelector("#register-btn").addEventListener("click", function() {
+    const emailInput = document.querySelector("#register-email").value;
+    const passwordInput = document.querySelector("#register-password").value;
+    const phoneInput = document.querySelector("#register-phone").value;
+    const addressInput = document.querySelector("#register-address").value;
+    const genderInput = document.querySelector("#register-gender").value;
 
-// Sự kiện cho nút "ĐĂNG KÝ"
-const registerButton = document.getElementById('register-btn'); // Nút đăng ký có ID "register-btn"
-registerButton.addEventListener('click', function(event) {
-    event.preventDefault(); // Ngăn chặn hành vi mặc định của form
+    // Lưu thông tin người dùng vào localStorage
+    localStorage.setItem("userName", emailInput);
+    localStorage.setItem("userPassword", passwordInput);
+    localStorage.setItem("userPhone", phoneInput);
+    localStorage.setItem("userAddress", addressInput);
+    localStorage.setItem("userGender", genderInput);
 
-    const email = document.getElementById('register-email').value; // Chọn đúng trường email đăng ký
-    const password = document.getElementById('register-password').value; // Chọn đúng trường mật khẩu đăng ký
-    const confirmPassword = document.getElementById('confirm-password').value; // Trường xác nhận mật khẩu
+    // Chuyển sang form đăng nhập và tự động điền email
+    login1();
+    document.querySelector("#login-email").value = emailInput;
+});
 
-    // Kiểm tra điều kiện đăng ký
-    if (email && password && confirmPassword && password === confirmPassword) {
-        // Lưu thông tin đăng ký
-        registeredEmail = email;
-        registeredPassword = password;
+// Xử lý đăng ký
+document.querySelector(".auth-form__controls .btn--primary").addEventListener("click", function() {
+    const emailInput = document.querySelector("#form-register input[type='text']").value;
+    
+    // Lưu email đăng ký vào localStorage
+    localStorage.setItem("userEmail", emailInput);
+    
+    // Chuyển sang form đăng nhập và tự động điền email
+    login1();  // Hàm này sẽ mở form đăng nhập (cần định nghĩa hàm này)
+    document.querySelector("#form-login input[type='text']").value = emailInput;
+});
 
-        alert('Đăng ký thành công! Mời bạn đăng nhập.');
-        login1(); // Hiển thị form đăng nhập sau khi đăng ký thành công
+// Xử lý đăng nhập
+document.querySelector("#form-login .btn--primary").addEventListener("click", function() {
+    const storedEmail = localStorage.getItem("userEmail");  // Lấy email đã đăng ký
+    const enteredEmail = document.querySelector("#form-login input[type='text']").value;
+
+    // Kiểm tra nếu email nhập vào khớp với email đã đăng ký
+    if (storedEmail === enteredEmail) {
+        alert("Đăng nhập thành công!");
+
+        // Hiển thị tên người dùng và ẩn các nút Đăng nhập/Đăng ký
+        document.getElementById("userName").innerText = storedEmail;
+        document.getElementById("user-name").style.display = "block";
+        document.getElementById("login").style.display = "none";
+        document.getElementById("register").style.display = "none";
+
+        // Ẩn modal đăng nhập/đăng ký
+        document.getElementById("modal").style.display = "none";
     } else {
-        alert('Vui lòng nhập đầy đủ thông tin và đảm bảo mật khẩu khớp.');
+        alert("Thông tin đăng nhập không chính xác!");
     }
 });
 
-// Sự kiện cho nút "ĐĂNG NHẬP"
-const loginButton = document.getElementById('login-btn'); // Nút đăng nhập có ID "login-btn"
-loginButton.addEventListener('click', function(event) {
-    event.preventDefault(); // Ngăn chặn hành vi mặc định của form
-
-    const email = document.getElementById('login-email').value; // Chọn đúng trường email đăng nhập
-    const password = document.getElementById('login-password').value; // Chọn đúng trường mật khẩu đăng nhập
-
-    // Kiểm tra thông tin đăng nhập
-    if (email === registeredEmail && password === registeredPassword) {
-        alert('Đăng nhập thành công!');
-        closeModal(); // Đóng modal sau khi đăng nhập thành công
-        // Chuyển hướng đến trang chủ (hoặc trang đích mong muốn)
-        window.location.href = "index.html";
+// Xử lý hiển thị menu Đăng xuất khi nhấn vào tên người dùng
+document.getElementById("userName").addEventListener("click", function() {
+    const logoutMenu = document.getElementById("logout-menu");
+    // Toggle hiển thị menu Đăng xuất
+    if (logoutMenu.style.display === "none") {
+        logoutMenu.style.display = "block";
     } else {
-        alert('Email hoặc mật khẩu không đúng!');
-        // Xóa các giá trị đã nhập và đặt con trỏ vào trường email
-        document.getElementById('login-email').value = '';
-        document.getElementById('login-password').value = '';
-        document.getElementById('login-email').focus();
+        logoutMenu.style.display = "none";
     }
 });
+
+// Xử lý đăng xuất
+document.getElementById("logout").addEventListener("click", function() {
+    // Xóa thông tin tên người dùng khỏi localStorage
+    localStorage.removeItem("userName");
+
+    // Đặt lại các trường trong form đăng ký và đăng nhập
+    document.querySelectorAll(".auth-form__input").forEach(function(input) {
+        input.value = ""; // Xóa tất cả các trường dữ liệu
+    });
+
+    // Hiển thị lại các nút Đăng nhập/Đăng ký
+    document.getElementById("login").style.display = "block";
+    document.getElementById("register").style.display = "block";
+
+    // Ẩn tên người dùng và menu Đăng xuất
+    document.getElementById("user-name").style.display = "none";
+    document.getElementById("logout-menu").style.display = "none";
+
+    alert("Đăng xuất thành công!");
+
+    // Chuyển về trang gốc (index.html)
+    window.location.href = "index.html"; // Chuyển hướng đến trang index (cập nhật đường dẫn nếu cần)
+});
+
+
